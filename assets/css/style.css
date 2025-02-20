@@ -207,6 +207,7 @@ p {
   letter-spacing: 1px;
   font-family: "Playfair Display", sans-serif;
   font-style: italic;
+  transition: all 0.3s ease; /* Adiciona transição suave */
 }
 
 #header .logo a {
@@ -215,11 +216,46 @@ p {
 
 #header .logo img {
   max-height: 40px;
+  width: auto; /* Mantém a proporção */
+  transition: all 0.3s ease; /* Adiciona transição suave */
 }
 
 @media (max-width: 992px) {
   #header {
+    font-size: 24px;
     border: 0;
+  }
+  #header .logo img {
+    max-height: 35px;
+  }
+}
+/* Ajustes para tablets */
+@media (max-width: 768px) {
+  #header .logo {
+    font-size: 20px;
+  }
+  #header .logo img {
+    max-height: 30px;
+  }
+}
+
+/* Ajustes para smartphones */
+@media (max-width: 480px) {
+  #header .logo {
+    font-size: 18px;
+  }
+  #header .logo img {
+    max-height: 25px;
+  }
+}
+
+/* Opcional: Ajuste fino para telas muito pequenas */
+@media (max-width: 320px) {
+  #header .logo {
+    font-size: 16px;
+  }
+  #header .logo img {
+    max-height: 22px;
   }
 }
 
@@ -270,13 +306,13 @@ p {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: #b8a07e;
+  color: #ED8158;
 }
 
 .navbar .dropdown ul {
   display: block;
   position: absolute;
-  left: 30px;
+  right: 30px;
   top: calc(100% + 30px);
   margin: 0;
   padding: 10px 0;
@@ -304,7 +340,7 @@ p {
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover>a {
-  color: #b8a07e;
+  color: #ED8158;
 }
 
 .navbar .dropdown:hover>ul {
@@ -315,14 +351,14 @@ p {
 
 .navbar .dropdown .dropdown ul {
   top: 0;
-  left: calc(100% - 30px);
+  right: calc(100% - 30px);
   visibility: hidden;
 }
 
 .navbar .dropdown .dropdown:hover>ul {
   opacity: 1;
   top: 0;
-  left: 100%;
+  right: 100%;
   visibility: visible;
 }
 
@@ -403,7 +439,7 @@ p {
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover>a {
-  color: #b8a07e;
+  color: #ED8158;
 }
 
 .navbar-mobile .getstarted,
@@ -438,7 +474,7 @@ p {
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
 .navbar-mobile .dropdown ul li:hover>a {
-  color: #b8a07e;
+  color: #ED8158;
 }
 
 .navbar-mobile .dropdown>.dropdown-active {
@@ -555,39 +591,78 @@ p {
 /*-----------------------------------------------------------------------------------*/
 /*  About
 /*-----------------------------------------------------------------------------------*/
+
 #about {
   width: 100%;
   height: auto;
   background: #f7f7f7;
   padding-top: 120px;
+  position: relative;
 }
 
 #about .div-img-bg {
-  padding-bottom: 30px;
-  border: 20px solid #9787EB;
+  position: relative;
+  padding: 20px; /* Espaçamento para o efeito de borda */
+  background: linear-gradient(
+    135deg,
+    #ED8158 0%,
+    #2C1A79 33%,
+    #CD82F7 66%,
+    #6789F6 100%
+  );
+  background-size: 400% 400%;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  animation: gradientFlow 15s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#about .div-img-bg .about-img {
+  position: relative;
+  z-index: 1;
 }
 
 #about .div-img-bg .about-img img {
   width: 100%;
-  box-shadow: 0px 0px 85px 0px rgba(0, 0, 0, 0.14);
-  margin-top: -60px;
-  margin-left: 40px;
   height: 400px;
-  -o-object-fit: cover;
   object-fit: cover;
+  border-radius: 10px;
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
+}
+
+#about .div-img-bg:hover .about-img img {
+  transform: rotate(0deg);
 }
 
 #about .about-descr .p-heading {
-  font-family: "Playfair Display", serif;
-  font-size: 28px;
+  font-family: "Poppins", helvetica;
+  font-size: 30px;
   text-align: left;
+  color: #2C1A79;
+  position: relative;
+  padding-bottom: 0px;
 }
 
+
+
 #about .about-descr .separator {
-  max-width: 80%;
-  margin-bottom: 0;
-  text-align: left;
+  max-width: 90%;
+  margin: 20px 0;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+  text-align: justify;
+  position: relative;
+  padding-left: 0px;
 }
+
+
 
 /*--------------------------------------------------------------
 # Services
@@ -617,7 +692,7 @@ p {
 
 .services-block i {
   font-size: 44px;
-  color: #9787EB;
+  color: #2C1A79;
   line-height: 44px;
 }
 
@@ -631,19 +706,20 @@ p {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid #9787EB;
+  border: 1px solid #2C1A79;
 }
 
 .services-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #9787EB;
+  background-color: #2C1A79;
 }
 
 /*--------------------------------------------------------------
 # Portfolio
 --------------------------------------------------------------*/
 #portfolio {
+  background: #f7f7f7;
   position: relative;
-  padding-bottom: 50px;
+  padding-bottom: 0px;
 }
 
 #portfolio #portfolio-flters {
@@ -670,7 +746,7 @@ p {
 
 #portfolio #portfolio-flters li:hover,
 #portfolio #portfolio-flters li.filter-active {
-  color: #b8a07e;
+  color: #ED8158;
 }
 
 #portfolio #portfolio-flters li:last-child {
@@ -681,6 +757,7 @@ p {
   margin-bottom: 30px;
 }
 
+/* Box dentro da imagem da capa do Projeto*/
 #portfolio .portfolio-item .portfolio-info {
   opacity: 0;
   position: absolute;
@@ -713,12 +790,12 @@ p {
   right: 40px;
   font-size: 24px;
   top: calc(50% - 18px);
-  color: #b8a07e;
+  color: #ED8158;
 }
 
 #portfolio .portfolio-item .portfolio-info .preview-link:hover,
 #portfolio .portfolio-item .portfolio-info .details-link:hover {
-  color: #cab89f;
+  color: #ED8158;
 }
 
 #portfolio .portfolio-item .portfolio-info .details-link {
@@ -763,7 +840,7 @@ p {
 
 #project #project-flters li:hover,
 #project #project-flters li.filter-active {
-  color: #b8a07e;
+  color: #ED8158;
 }
 
 #project #project-flters li:last-child {
@@ -806,12 +883,12 @@ p {
   right: 40px;
   font-size: 24px;
   top: calc(50% - 18px);
-  color: #b8a07e;
+  color: #ED8158;
 }
 
 #project .project-item .project-info .preview-link:hover,
 #project .project-item .project-info .details-link:hover {
-  color: #cab89f;
+  color: #ED8158;
 }
 
 #project .project-item .project-info .details-link {
@@ -844,11 +921,11 @@ p {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid #b8a07e;
+  border: 1px solid #ED8158;
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #b8a07e;
+  background-color: #ED8158;
 }
 
 .portfolio-details .portfolio-info {
@@ -895,7 +972,6 @@ p {
 #journal-blog {
   height: auto;
   width: 100%;
-  background: #f7f7f7;
   padding-bottom: 60px;
   position: relative;
 }
@@ -935,7 +1011,7 @@ p {
 }
 
 .journal-block .journal-info .journal-txt h4 a:hover {
-  color: #b8a07e;
+  color: #ED8158;
   transition: all 0.5s ease-in-out 0s;
 }
 
@@ -946,7 +1022,7 @@ p {
 }
 
 /*--------------------------------------------------------------
-# Journal
+# Contact
 --------------------------------------------------------------*/
 #contact {
   height: auto;
@@ -1074,7 +1150,7 @@ p {
 }
 
 .journal-txt h4 a:hover {
-  color: #b8a07e;
+  color: #ED8158;
   transition: all 0.5s ease-in-out 0s;
 }
 
@@ -1158,7 +1234,7 @@ blockquote {
   background-color: #f2f2f2;
   margin: 30px 0;
   border: none;
-  border-left: 4px solid #b8a07e;
+  border-left: 4px solid #ED8158;
 }
 
 /*--------------------------------------------------------------
