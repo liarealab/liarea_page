@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Animação de Linhas com SVG</title>
+        <style>
+            /* Estilização básica da página */
+            body {
+                background-color: #333;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            /* Configurações do SVG */
+            svg {
+                width: 400px;
+                height: 400px;
+            }
+
+            /* Estilo dos caminhos (linhas) */
+            .path {
+                fill: none;
+                stroke: #fff;
+                stroke-width: 2;
+                /* Ajuste estes valores para se adequar ao tamanho do seu traço */
+                stroke-dasharray: 1000;
+                stroke-dashoffset: 1000;
+                animation: draw 5s linear forwards;
+            }
+
+            /* Animação que reduz o dash-offset para 0, "desenhando" a linha */
+            @keyframes draw {
+                to {
+                    stroke-dashoffset: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Exemplo com um SVG contendo um único caminho (neste caso, um quadrado) -->
+        <svg viewBox="0 0 100 100">
+            <!-- Você pode substituir este path pelo conteúdo do seu SVG -->
+            <path class="path" d="M 10 10 L 90 10 L 90 90 L 10 90 Z" />
+        </svg>
+    </body>
+</html>
