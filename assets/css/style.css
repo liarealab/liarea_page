@@ -1722,12 +1722,12 @@ blockquote {
 
 #members {
     text-align: center;
-    padding: 80px;
+    padding: 1px;
     background-color: #fefeff; /* Cor de fundo leve para o container de membros */
 }
 
 .section-container {
-    margin-bottom: -28px; /* Adiciona espaço entre as seções de professores e estudantes */
+    margin-bottom: -8px; /* Adiciona espaço entre as seções de professores e estudantes */
 }
 
 .member-container {
@@ -1738,8 +1738,8 @@ blockquote {
 }
 
 .member {
-    width: 385px; /* Largura fixa para cada membro */
-    margin: 18px; /* Espaço entre os membros para evitar sobreposição */
+    width: 250px; /* Largura fixa para cada membro */
+    margin: 28px; /* Espaço entre os membros para evitar sobreposição */
     padding: 15px;
     background-color: #fff; /* Fundo branco para cada membro, destacando individualmente */
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para um efeito 3D leve */
@@ -1747,10 +1747,10 @@ blockquote {
 }
 
 .member img {
-    width: 180px;
-    height: 180px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%; /* Imagens redondas para um visual moderno */
-    margin-top: -40px; /* Ajusta a imagem para sobrepor a borda superior do cartão do membro */
+    margin-top: -30px; /* Ajusta a imagem para sobrepor a borda superior do cartão do membro */
     border: 4px solid #fff; /* Borda branca ao redor da imagem para separação visual do fundo */
 }
 
