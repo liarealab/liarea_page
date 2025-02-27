@@ -719,95 +719,135 @@ p {
 # Portfolio
 --------------------------------------------------------------*/
 #portfolio {
-    background: #f7f7f7;
+    background: #fff;
     position: relative;
-    padding-bottom: 0px;
+    padding: 60px 60px;
+}
+
+#portfolio .section-title {
+    margin-bottom: 40px;
 }
 
 #portfolio #portfolio-flters {
-    padding: 0;
-    margin: 0 auto 35px auto;
     list-style: none;
     text-align: center;
-    border-radius: 50px;
-    padding: 2px 15px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.5);
+    display: inline-block;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
 #portfolio #portfolio-flters li {
     cursor: pointer;
     display: inline-block;
-    padding: 10px 15px 8px 15px;
-    font-size: 14px;
+    padding: 12px 18px;
+    font-size: 15px;
     font-weight: 600;
-    line-height: 1;
     text-transform: uppercase;
-    color: #999999;
-    margin-bottom: 5px;
+    color: #666;
+    margin: 5px;
     transition: all 0.3s ease-in-out;
+    border-radius: 20px;
 }
 
 #portfolio #portfolio-flters li:hover,
 #portfolio #portfolio-flters li.filter-active {
-    color: #ed8158;
+    color: #fff;
+    background: #ed8158;
 }
 
-#portfolio #portfolio-flters li:last-child {
-    margin-right: 0;
+.portfolio-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
 }
 
-#portfolio .portfolio-item {
-    margin-bottom: 30px;
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
 }
 
-/* Box dentro da imagem da capa do Projeto*/
-#portfolio .portfolio-item .portfolio-info {
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.05);
+}
+
+.portfolio-info {
     opacity: 0;
     position: absolute;
-    left: 30px;
-    right: 30px;
     bottom: 0;
-    z-index: 3;
-    transition: all ease-in-out 0.3s;
+    left: 15px;
+    right: 15px;
     background: rgba(255, 255, 255, 0.9);
-    padding: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(20px);
 }
 
-#portfolio .portfolio-item .portfolio-info h4 {
+.portfolio-item:hover .portfolio-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.portfolio-info h4 {
     font-size: 18px;
-    color: #666;
+    color: #333;
     font-weight: 600;
     margin-bottom: 10px;
 }
 
-#portfolio .portfolio-item .portfolio-info p {
-    color: #999;
+.portfolio-info p {
+    color: #555;
     font-size: 14px;
     margin: 0;
-    padding: 0;
 }
 
-#portfolio .portfolio-item .portfolio-info .preview-link,
-#portfolio .portfolio-item .portfolio-info .details-link {
+.portfolio-info .preview-link,
+.portfolio-info .details-link {
     position: absolute;
-    right: 40px;
-    font-size: 24px;
-    top: calc(50% - 18px);
+    right: 15px;
+    top: 15px;
+    font-size: 22px;
     color: #ed8158;
+    transition: color 0.3s ease;
 }
 
-#portfolio .portfolio-item .portfolio-info .preview-link:hover,
-#portfolio .portfolio-item .portfolio-info .details-link:hover {
-    color: #ed8158;
+.portfolio-info .preview-link:hover,
+.portfolio-info .details-link:hover {
+    color: #d45630;
 }
 
-#portfolio .portfolio-item .portfolio-info .details-link {
-    right: 10px;
+@media (max-width: 768px) {
+    #portfolio #portfolio-flters {
+        display: block;
+        padding: 10px;
+    }
+
+    .portfolio-container {
+        gap: 20px;
+    }
+
+    .portfolio-item {
+        width: 100%;
+    }
 }
 
-#portfolio .portfolio-item:hover .portfolio-info {
-    opacity: 1;
-    bottom: 20px;
-}
 
 /*--------------------------------------------------------------
 # Projects
@@ -975,111 +1015,182 @@ p {
 /*--------------------------------------------------------------
 # Journal
 --------------------------------------------------------------*/
-#journal,
-#journal-blog {
-    height: auto;
-    width: 100%;
-    padding-bottom: 60px;
+/* ======= Publicação Blog Section ======= */
+#journal {
+    text-align: center;
+    background: #f7f7f7;
+    padding: 60px 30px;
+    background:  #f7f7f7;
     position: relative;
 }
 
-#journal-blog {
+.section-title {
+    margin-bottom: 20px;
+}
+
+.journal-block {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px; /* Espaçamento maior entre os blocos */
+    gap: 20px;
+    padding: 20px 0;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.journal-info {
+    width: 350px;
+    padding: 20px;
+    background: #ffffff;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    text-align: center;
+    height: 480px; /* Altura padronizada */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.journal-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.journal-info img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
     background: #fff;
-    padding-bottom: 30px;
 }
 
-#journal .journal-block {
-    display: inline-block;
-    height: auto;
-    width: 100%;
+.journal-info:hover img {
+    transform: scale(1.05);
 }
 
-#journal .journal-block .journal-info {
+.journal-txt {
+    padding: 20px 0 10px;
     position: relative;
+    flex-grow: 1;
 }
 
-.journal-block .journal-info img {
-    max-width: 100%;
-}
-
-.journal-block .journal-info .journal-txt {
-    padding: 25px 0px;
-    position: relative;
-}
-
-.journal-block .journal-info .journal-txt h4 a {
+.journal-txt h4 a {
     display: block;
-    font-size: 19px;
+    font-size: 16px;
     line-height: 24px;
-    margin: 0 0 13px 0;
-    font-weight: 500;
-    color: #292929;
-    transition: all 0.5s ease-in-out 0s;
+    font-weight: 600;
+    color: #2a2a2a;
+    transition: color 0.3s ease;
 }
 
-.journal-block .journal-info .journal-txt h4 a:hover {
+.journal-txt h4 a:hover {
     color: #ed8158;
-    transition: all 0.5s ease-in-out 0s;
 }
 
-.journal-block .journal-info .journal-txt p {
-    margin: 0;
+.journal-txt p {
+    color: #555;
     font-size: 14px;
-    line-height: 24px;
+    line-height: 1.5;
+    min-height: 60px; /* Altura mínima para uniformidade */
 }
+
 
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
 #contact {
-    height: auto;
     width: 100%;
+    padding: 60px 0;
+    background: #f7f7f7; /* Fundo suave para melhor contraste */
+}
+
+
+
+.contact-contact h2 {
+    font-size: 28px;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 .contact-details {
     list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
 
 .contact-details li {
+    font-size: 16px;
+    color: #555;
     padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
+.contact-details li::before {
+    font-size: 18px;
+    color: #ed8158;
+}
+
+
+/* Estilizando o mapa */
+#contact iframe {
+    width: 100%;
+    height: 450px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Formulário */
 #contact input,
 #contact textarea {
     width: 100%;
-    margin-bottom: 5px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    transition: border 0.3s ease;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+    border-color: #ed8158;
+    outline: none;
 }
 
 #contact textarea {
     min-height: 160px;
+    resize: vertical;
+}
+
+/* Estilos para mensagens de erro e sucesso */
+.php-email-form .error-message,
+.php-email-form .sent-message {
+    display: none;
+    padding: 15px;
+    font-weight: 600;
+    border-radius: 5px;
+    text-align: center;
 }
 
 .php-email-form .error-message {
-    display: none;
     color: #fff;
     background: #ed3c0d;
-    text-align: left;
-    padding: 15px;
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-
-.php-email-form .error-message br + br {
-    margin-top: 25px;
 }
 
 .php-email-form .sent-message {
-    display: none;
     color: #fff;
     background: #18d26e;
-    text-align: center;
-    padding: 15px;
-    font-weight: 600;
-    margin-bottom: 15px;
 }
 
+/* Animação de carregamento */
 .php-email-form .loading {
     display: none;
     background: #fff;
@@ -1104,9 +1215,28 @@ p {
     0% {
         transform: rotate(0deg);
     }
-
     100% {
         transform: rotate(360deg);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .contact-block1 {
+        padding: 30px;
+    }
+
+    .contact-contact h2 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .contact-details {
+        text-align: center;
+    }
+
+    .contact-details li {
+        justify-content: center;
     }
 }
 
@@ -1719,61 +1849,98 @@ blockquote {
 /*--------------------------------------------------------------
 # Members
 --------------------------------------------------------------*/
-
 #members {
     text-align: center;
-    padding: 1px;
-    background-color: #fefeff; /* Cor de fundo leve para o container de membros */
+    padding: 40px 20px; /* Espaçamento interno maior */
+    background: linear-gradient(135deg, #f8f9ff 0%, #fefeff 100%); /* Gradiente sutil */
+    position: relative;
 }
 
 .section-container {
-    margin-bottom: -8px; /* Adiciona espaço entre as seções de professores e estudantes */
+    margin-bottom: -8px; /* Espaço positivo entre seções */
 }
 
 .member-container {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Permite que os membros se ajustem em várias linhas se necessário */
-    padding: 1px; /* Espaço generoso ao redor do conteúdo dentro do container para separação visual */
+    flex-wrap: wrap;
+    gap: 20px; /* Espaçamento consistente entre cards */
+    padding: 20px 0;
+    max-width: 1300px; /* Limite máximo para melhor leitura */
+    margin: 0 auto; /* Centralização */
 }
 
 .member {
-    width: 250px; /* Largura fixa para cada membro */
-    margin: 28px; /* Espaço entre os membros para evitar sobreposição */
-    padding: 15px;
-    background-color: #fff; /* Fundo branco para cada membro, destacando individualmente */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para um efeito 3D leve */
-    text-align: center; /* Centraliza o texto dentro de cada 'member' */
+    width: 250px; /* Largura um pouco maior */
+    margin: 15px;
+    padding: 25px 20px;
+    background: #ffffff;
+    border-radius: 15px; /* Cantos arredondados */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Sombra mais suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+    position: relative;
+}
+
+.member:hover {
+    transform: translateY(-5px); /* Efeito de levitação */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); /* Sombra mais intensa no hover */
 }
 
 .member img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%; /* Imagens redondas para um visual moderno */
-    margin-top: -30px; /* Ajusta a imagem para sobrepor a borda superior do cartão do membro */
-    border: 4px solid #fff; /* Borda branca ao redor da imagem para separação visual do fundo */
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    margin-top: -50px; /* Sobreposição maior */
+    border: 4px solid #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra na foto */
+    object-fit: cover; /* Garante preenchimento da imagem */
+    transition: transform 0.3s ease;
+    background: #fff; /* Fundo para imagens transparentes */
+    z-index: 1; /* Garante sobreposição */
+}
+
+.member:hover img {
+    transform: scale(1.05); /* Efeito de zoom sutil */
 }
 
 .member h3 {
-    margin-top: 5px; /* Espaço após a imagem para o nome */
+    margin: 15px 0 8px;
+    color: #2a2a2a;
+    font-size: 1.3em;
+    font-weight: 600; /* Peso da fonte mais destacado */
 }
 
 .member p {
-    color: #666; /* Cor cinza para o texto descrevendo o papel do membro */
-    font-size: 0.9em; /* Tamanho de fonte menor para texto descritivo */
+    color: #555; /* Contraste melhorado */
+    font-size: 0.95em;
+    line-height: 1.5; /* Melhor legibilidade */
+    min-height: 60px; /* Altura consistente para descrições */
+    margin-bottom: 15px;
 }
 
 .social-links {
-    margin-top: 20px; /* Espaço antes dos ícones sociais para clareza visual */
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 12px; /* Espaçamento entre ícones */
 }
 
 .social-links a {
-    margin: 0 5px; /* Espaçamento entre ícones sociais */
-    display: inline-block; /* Permite melhor controle do layout dos ícones */
+    transition: transform 0.2s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-2px); /* Efeito de levitação nos ícones */
 }
 
 .social-links img {
-    width: 35px; /* Tamanho consistente para ícones sociais */
-    height: 35px;
-    object-fit: contain; /* Evita distorção dos ícones */
+    width: 32px;
+    height: 32px;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
 }
+
+.social-links img:hover {
+    opacity: 1; /* Ícones mais vibrantes no hover */
+}
+
