@@ -486,8 +486,25 @@ p {
 --------------------------------------------------------------*/
 #hero {
     background: url("../img/home-bg.jpg") repeat scroll center center/cover;
-    height: 80vh;
+    height: 75vh;
     width: 100%;
+    position: relative; /* Adicionado para posicionamento relativo */
+}
+
+/* Nova imagem sobreposta com sombras */
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    background: url("../img/overlay-image.png") center/contain no-repeat;
+    filter: drop-shadow(0 0 5px #FFFED0)
+            drop-shadow(0 0 15px #9787EB); 
+            
+    pointer-events: none; /* Permite interação com elementos abaixo */
 }
 
 #hero .hero-content {
@@ -497,8 +514,11 @@ p {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    position: relative; /* Adicionado para contexto de empilhamento */
+    z-index: 1; /* Garante que o conteúdo fique sobre a sobreposição */
 }
 
+/* Mantido o restante dos estilos originais */
 .hero-content h1 {
     font-size: 40px;
     font-weight: 700;
@@ -525,6 +545,21 @@ p {
 .hero-content .list-social li i {
     color: #fff;
     font-size: 15px;
+}
+
+/* Media Queries para dimensões dinâmicas */
+@media (max-width: 768px) {
+    #hero::before {
+        width: 95%;
+        height: 60%;
+    }
+}
+
+@media (min-width: 1600px) {
+    #hero::before {
+        width: 60%;
+        height: 70%;
+    }
 }
 
 /*--------------------------------------------------------------
@@ -725,19 +760,21 @@ p {
 }
 
 #portfolio .section-title {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
+/*Bottom */
 #portfolio #portfolio-flters {
     list-style: none;
     text-align: center;
-    padding: 10px 20px;
+    padding: 5px 20px;
     border-radius: 25px;
     background: rgba(255, 255, 255, 0.5);
     display: inline-block;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
+/*Bottom */
 #portfolio #portfolio-flters li {
     cursor: pointer;
     display: inline-block;
@@ -760,11 +797,11 @@ p {
 .portfolio-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
     justify-content: center;
 }
 
 .portfolio-item {
+    margin-bottom: 15px;
     position: relative;
     overflow: hidden;
     border-radius: 15px;
@@ -775,18 +812,20 @@ p {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
+/* Image card */
 .portfolio-item img {
     width: 100%;
     height: 250px;
     object-fit: cover;
     border-radius: 15px;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 .portfolio-item:hover img {
-    transform: scale(1.05);
+    transform: scale(1.10);
 }
 
+/* Information card */
 .portfolio-info {
     opacity: 0;
     position: absolute;
@@ -794,13 +833,14 @@ p {
     left: 15px;
     right: 15px;
     background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 10px;
+    padding: 15px;
+    border-radius: 15px;
     transition: opacity 0.3s ease, transform 0.3s ease;
     transform: translateY(20px);
 }
 
 .portfolio-item:hover .portfolio-info {
+    gap: 20px;
     opacity: 1;
     transform: translateY(0);
 }
@@ -809,7 +849,7 @@ p {
     font-size: 18px;
     color: #333;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .portfolio-info p {
@@ -820,9 +860,9 @@ p {
 
 .portfolio-info .preview-link,
 .portfolio-info .details-link {
-    position: absolute;
-    right: 15px;
-    top: 15px;
+    position: relative;
+    right: 0px;
+    top: 10px;
     font-size: 22px;
     color: #ed8158;
     transition: color 0.3s ease;
@@ -840,7 +880,7 @@ p {
     }
 
     .portfolio-container {
-        gap: 20px;
+        gap: 60px;
     }
 
     .portfolio-item {
@@ -1019,7 +1059,7 @@ p {
 #journal {
     text-align: center;
     background: #f7f7f7;
-    padding: 60px 30px;
+    padding: 30px 60px;
     background:  #f7f7f7;
     position: relative;
 }
@@ -1033,14 +1073,13 @@ p {
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px; /* Espaçamento maior entre os blocos */
-    gap: 20px;
     padding: 20px 0;
-    max-width: 1100px;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
 .journal-info {
-    width: 350px;
+    width: 100%;
     padding: 20px;
     background: #ffffff;
     margin-bottom: 20px;
@@ -1049,7 +1088,7 @@ p {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     text-align: center;
-    height: 480px; /* Altura padronizada */
+    height: 500px; /* Altura padronizada */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1866,7 +1905,7 @@ blockquote {
     flex-wrap: wrap;
     gap: 20px; /* Espaçamento consistente entre cards */
     padding: 20px 0;
-    max-width: 1300px; /* Limite máximo para melhor leitura */
+    max-width: 14300px; /* Limite máximo para melhor leitura */
     margin: 0 auto; /* Centralização */
 }
 
