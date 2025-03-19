@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>INPE - LIAREA</title>
+  <title>LIAREA - TerraClass</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -17,6 +17,7 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,500,500i,600,600i,700,700i,900,900i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
+  
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
@@ -25,7 +26,6 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
 
 </head>
 
@@ -69,46 +69,71 @@
 
   <main id="main">
 
-    <!-- ======= Blog ======= -->
-    <div class="main-content paddsection">
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-8 col-md-offset-2">
-            <div class="row">
-              <div class="container-main single-main">
-                <div class="col-md-12">
-                  <div class="block-main mb-30">
-                    <img src="assets/img/blog-post-big.jpg" class="img-responsive" alt="reviews2">
-                    <div class="content-main single-post padDiv">
-                      <div class="journal-txt">
-                        <h4><a href="#">Inauguration of the laboratory headquarters</a></h4>
-                      </div>
-                      <div class="post-meta">
-                        <ul class="list-unstyled mb-0">
-                          <li class="author">by:<a href="#">Surname, Name</a></li>
-                          <li class="date">date:<a href="#">February 19, 2025</a></li>
-                          <li class="commont"><i class="ion-ios-heart-outline"></i><a href="#">São José dos Campos</a></li>
-                        </ul>
-                      </div>
-                      <p class="mb-30">...</p>
-                      <p class="mb-30">...</p>
-                      <blockquote>Citation.</blockquote>
-                      <p class="mb-30">...</p>
-                    </div>
-                  </div>
+
+        <!-- Add here -->
+
+      </div>
+    </section><!-- Breadcrumbs Section -->
+
+    <div id="news" class="paddsection">
+
+      <div class="container">
+        <div class="section-title text-center">
+          <h2>News</h2>
+        </div>
+      </div>
+
+      <div class="container">
+
+          <div class="row">
+            <!-- INAUGURAÇÃO 2025 -->
+            <div class="col-lg-4 col-md-6">
+              <div class="journal-info">
+                <a href="news-interview.html"><img src="assets/img/news/02mar-inauguracaojornal.jpeg" class="img-responsive" alt="img"></a>
+                <div class="journal-txt">
+                  <h4><a href="news-interview.html">Interview to the program Brasil com Ciência</a></h4>
+                  <p class="separator">Introducing the lab activities and members</p>
+                </div>
+              </div>
+            </div> 
+
+
+            <!-- Solar AI & GSST Mission Workshop -->
+            <div class="col-lg-4 col-md-6">
+              <div class="journal-info">
+                <a href="news-inauguracao-brunch.html"><img src="assets/img/news/02mar-inauguracaopessoas_crop.jpeg" class="img-responsive" alt="Solar AI & GSST Mission Workshop"></a>
+                <div class="journal-txt">
+                  <h4><a href="news-inauguracao-brunch.html">LIAREA: Laboratory Expansion</a></h4>
+                  <p class="separator"> Strengthening AI Research and Collaboration</p>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div><!-- End Nws Blog -->
 
-  </main><!-- End #main -->
+            <!-- Solar AI & GSST Mission Workshop -->
+            <div class="col-lg-4 col-md-6">
+              <div class="journal-info">
+                <a href="news-solarai16mar.html"><img src="assets/img/news/IMG_3323.png" class="img-responsive" alt="Solar AI & GSST Mission Workshop"></a>
+                <div class="journal-txt">
+                  <h4><a href="news-solarai16mar.html"> Workshop: Solar AI & GSST Mission</a></h4>
+                  <p class="separator"> AI solutions for solar physics and lunar landing</p>
+                </div>
+              </div>
+            </div>
+
+
+          </div>  
+      </div>
+    </div> <!-- Publicacoes end -->
+    
+  </main> <!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <div id="footer" class="text-center">
     <div class="container">
+
       <p>&copy; Copyrights LIAREA. All rights reserved.</p>
 
       <div class="credits">
@@ -121,6 +146,7 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
@@ -130,6 +156,36 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    // Inicializa o Isotope para filtragem
+    window.onload = function() {
+      var publicacoesIsotope = document.querySelector('.publicacoes-container');
+      var publicacoesFilters = document.querySelector('#publicacoes-flters');
+  
+      if (publicacoesIsotope && publicacoesFilters) {
+        var iso = new Isotope(publicacoesIsotope, {
+          itemSelector: '.publicacoes-item',
+          layoutMode: 'fitRows'
+        });
+  
+        publicacoesFilters.addEventListener('click', function(event) {
+          if (!event.target.matches('li')) {
+            return;
+          }
+  
+          var filterValue = event.target.getAttribute('data-filter');
+          iso.arrange({ filter: filterValue });
+  
+          // Adiciona a classe 'filter-active' ao botão clicado e remove dos outros
+          publicacoesFilters.querySelectorAll('li').forEach(function(li) {
+            li.classList.remove('filter-active');
+          });
+          event.target.classList.add('filter-active');
+        });
+      }
+    };
+  </script>
 
 </body>
 
